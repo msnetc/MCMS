@@ -166,7 +166,8 @@ public class ArticleAction extends BaseAction {
 			HttpServletResponse response, @PathVariable int categoryId) {
 		int[] basicCategoryIds = null;
 		String articleType = article.getArticleType();
-		if(StringUtils.isEmpty(articleType)){
+		final  String defaultProperty ="默认属性";
+		if(StringUtils.isEmpty(articleType) || articleType.equals(defaultProperty)){
 			articleType = BasicUtil.getString("articleTypeStr");
 		}
 		if(!StringUtils.isEmpty(articleType) && articleType.equals("a")){
